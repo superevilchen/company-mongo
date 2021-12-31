@@ -10,6 +10,8 @@ import org.springframework.beans.factory.annotation.Required;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 @Component
 @RequiredArgsConstructor
 public class DataMocker implements CommandLineRunner {
@@ -33,8 +35,6 @@ public class DataMocker implements CommandLineRunner {
         c.setSalary(6000);
         c.setDepartment("Engineering");
 
-        employeeService.addEmployee(a);
-        employeeService.addEmployee(b);
-        employeeService.addEmployee(c);
+        employeeService.addMultipleEmployees(List.of(a, b, c));
     }
 }

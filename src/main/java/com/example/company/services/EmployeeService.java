@@ -21,6 +21,10 @@ public class EmployeeService {
         System.out.println("added employee");
     }
 
+    public void addMultipleEmployees(List<Employee> employees){
+        employeeRepository.saveAll(employees);
+    }
+
     @Transactional
     public void updateEmployee(String id, Employee e) throws Exception {
         Employee fromDB = employeeRepository.findById(id).orElseThrow(() -> new Exception("couldnt get employee"));
